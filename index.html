@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feuille de Route - Spectacle</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>Feuille de Route - 26 Juin 2026</h1>
+      <div class="controls">
+        <button id="new-doc">Nouveau Doc</button>
+        <button id="load-json">Charger JSON</button>
+        <input type="file" id="file-input" style="display: none;" accept=".json">
+        <button id="save-json">Sauvegarder JSON</button>
+        <button id="add-row">Ajouter une ligne</button>
+        <button id="export-csv">Exporter CSV</button>
+        <button id="save-all" class="save-btn">Enregistrer Local</button>
+        <button id="reset-data" class="reset-btn">Reset</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="table-container">
+        <table id="schedule-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Scène</th>
+              <th>Artiste</th>
+              <th>Formule</th>
+              <th>Tâches</th>
+              <th>Début</th>
+              <th>Fin</th>
+              <th>Durée</th>
+              <th>Chansons liste</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Rows will be injected here -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
