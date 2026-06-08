@@ -18,12 +18,13 @@ async function init() {
 
   if (!schedule || schedule.length === 0) {
     try {
-      const response = await fetch('./src/initialData.json');
+      // Try current folder first (works on Vercel with folder-relative paths or root)
+      const response = await fetch('src/initialData.json').catch(() => fetch('./src/initialData.json'));
       if (!response.ok) throw new Error("JSON initialData not found");
       schedule = await response.json();
     } catch (e) {
       console.error("Error loading JSON", e);
-      schedule = []; // Fallback to empty array to avoid crashes
+      schedule = []; 
     }
   }
 
@@ -49,8 +50,8 @@ async function init() {
 async function enrichScheduleWithCSV() {
   try {
     // Look for CSV in src/ folder where we copied it
-    const response = await fetch('./src/songs_list_links.csv');
-    if (!response.ok) throw new Error("CSV not found at ./src/songs_list_links.csv");
+    const response = await fetch('src/songs_list_links.csv').catch(() => fetch('./src/songs_list_links.csv'));
+    if (!response.ok) throw new Error("CSV not found");
     const text = await response.text();
     const lines = text.split('\n').filter(l => l.trim());
     if (lines.length < 2) return;
