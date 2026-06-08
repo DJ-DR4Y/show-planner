@@ -1,34 +1,413 @@
 [
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Montage kit", "debut": "09:00", "fin": "12:30", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Repas des techniciens (Installation)", "debut": "12:30", "fin": "13:30", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Be Ahissia", "formule": "5 musiciens", "taches": "Test de son", "debut": "13:30", "fin": "14:15", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Be Ahissia", "formule": "5 musiciens", "taches": "Préparation de scène", "debut": "14:15", "fin": "15:00", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Préparation folkloriste + Tam tam", "formule": "5 musiciens", "taches": "Préparation de scène", "debut": "15:00", "fin": "15:30", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Show call", "debut": "15:30", "fin": "16:00", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Chorégraphie africaine", "formule": "Danse", "taches": "Spectacle", "debut": "16:00", "fin": "16:15", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Transition", "debut": "16:15", "fin": "16:20", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Danse Latine", "formule": "Danse", "taches": "Spectacle", "debut": "16:20", "fin": "17:00", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Transition", "debut": "17:00", "fin": "17:10", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Tam tam - Saguenay", "formule": "2 musiciens", "taches": "Spectacle", "debut": "17:10", "fin": "17:55", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Transition", "debut": "17:55", "fin": "18:05", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Folkloriste", "formule": "5 musiciens", "taches": "Spectacle", "debut": "18:05", "fin": "18:55", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Transition", "debut": "18:55", "fin": "19:05", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Bouger-bouger", "formule": "Danse", "taches": "Spectacle", "debut": "19:05", "fin": "19:50", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Transition", "debut": "19:50", "fin": "20:00", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "André Guay", "formule": "DJ", "taches": "Spectacle", "debut": "20:00", "fin": "20:50", "chansons": [
-    { "titre": "Alors on Danse", "info": "Stromae" },
-    { "titre": "Papaoutai", "info": "Stromae" },
-    { "titre": "Don't Stop the Music", "info": "Rihanna" },
-    { "titre": "200% Zoblazo", "info": "Meiway - DANSE" },
-    { "titre": "Thank You", "info": "" },
-    { "titre": "Play That Funky Music", "info": "" },
-    { "titre": "That’s the Way", "info": "" },
-    { "titre": "Heavy Marya", "info": "" },
-    { "titre": "She Gets Me High", "info": "" },
-    { "titre": "Zooka Swang", "info": "" },
-    { "titre": "Sweet Dreams", "info": "FIN" }
-  ] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Transition", "debut": "20:50", "fin": "21:00", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Be Ahissia", "formule": "", "taches": "Spectacle", "debut": "21:00", "fin": "22:15", "chansons": [] },
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Démontage du kit", "debut": "22:00", "fin": "00:00", "chansons": [] }
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Montage kit",
+    "debut": "09:00",
+    "fin": "12:30",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Repas des techniciens (Installation)",
+    "debut": "12:30",
+    "fin": "13:30",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Be Ahissia",
+    "formule": "5 musiciens",
+    "taches": "Test de son",
+    "debut": "13:30",
+    "fin": "14:15",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Be Ahissia",
+    "formule": "5 musiciens",
+    "taches": "Préparation de scène",
+    "debut": "14:15",
+    "fin": "15:00",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Préparation folkloriste + Tam tam",
+    "formule": "5 musiciens",
+    "taches": "Préparation de scène",
+    "debut": "15:00",
+    "fin": "15:30",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Show call",
+    "debut": "15:30",
+    "fin": "16:00",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Chorégraphie africaine",
+    "formule": "Danse",
+    "taches": "Spectacle",
+    "debut": "16:00",
+    "fin": "16:15",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Transition",
+    "debut": "16:15",
+    "fin": "16:20",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Danse Latine",
+    "formule": "Danse",
+    "taches": "Spectacle",
+    "debut": "16:20",
+    "fin": "17:00",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Transition",
+    "debut": "17:00",
+    "fin": "17:10",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Tam tam - Saguenay",
+    "formule": "2 musiciens",
+    "taches": "Spectacle",
+    "debut": "17:10",
+    "fin": "17:55",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Transition",
+    "debut": "17:55",
+    "fin": "18:05",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Folkloriste",
+    "formule": "5 musiciens",
+    "taches": "Spectacle",
+    "debut": "18:05",
+    "fin": "18:55",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Transition",
+    "debut": "18:55",
+    "fin": "19:05",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Bouger-bouger",
+    "formule": "Danse",
+    "taches": "Spectacle",
+    "debut": "19:05",
+    "fin": "19:50",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Transition",
+    "debut": "19:50",
+    "fin": "20:00",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "André Guay",
+    "formule": "DJ",
+    "taches": "Spectacle",
+    "debut": "20:00",
+    "fin": "20:50",
+    "chansons": [
+      {
+        "titre": "Alors on Danse",
+        "artiste": "Stromae",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "Papaoutai",
+        "artiste": "Stromae",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "Don't Stop the Music",
+        "artiste": "Rihanna",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "200% Zoblazo",
+        "artiste": "Meiway - DANSE",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "Thank You",
+        "artiste": "",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "Play That Funky Music",
+        "artiste": "",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "That’s the Way",
+        "artiste": "",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "Heavy Marya",
+        "artiste": "",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "She Gets Me High",
+        "artiste": "",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "Zooka Swang",
+        "artiste": "",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "Sweet Dreams",
+        "artiste": "FIN",
+        "bpm": "",
+        "key": "",
+        "ok": true
+      },
+      {
+        "titre": "Buga",
+        "artiste": "Kizz Daniel & Tekno",
+        "bpm": "107.99",
+        "key": "A♭m",
+        "ok": false
+      },
+      {
+        "titre": "One Leg",
+        "artiste": "Jay Hover",
+        "bpm": "111.95",
+        "key": "Bm",
+        "ok": false
+      },
+      {
+        "titre": "Fally Ipupa (général)",
+        "artiste": "Variable",
+        "bpm": "98–110",
+        "key": "Variable",
+        "ok": false
+      },
+      {
+        "titre": "Afro Dance",
+        "artiste": "Serge Beno",
+        "bpm": "119.98",
+        "key": "A♭m",
+        "ok": false
+      },
+      {
+        "titre": "Zambelemam",
+        "artiste": "Josey",
+        "bpm": "95.96",
+        "key": "Gm",
+        "ok": false
+      },
+      {
+        "titre": "Jerusalema",
+        "artiste": "Master KG",
+        "bpm": "123.99",
+        "key": "Bm",
+        "ok": true
+      },
+      {
+        "titre": "Diamond Platnumz (général)",
+        "artiste": "Variable",
+        "bpm": "100–118",
+        "key": "Variable",
+        "ok": false
+      },
+      {
+        "titre": "Juste une danse",
+        "artiste": "Fally Ipupa",
+        "bpm": "109.98",
+        "key": "F♯m",
+        "ok": false
+      },
+      {
+        "titre": "Personally",
+        "artiste": "P‑Square",
+        "bpm": "119.99",
+        "key": "Dm",
+        "ok": false
+      },
+      {
+        "titre": "Alingo",
+        "artiste": "P‑Square",
+        "bpm": "127.98",
+        "key": "Fm",
+        "ok": false
+      },
+      {
+        "titre": "Fall",
+        "artiste": "Davido",
+        "bpm": "107.01",
+        "key": "Em",
+        "ok": false
+      },
+      {
+        "titre": "Chop My Money",
+        "artiste": "P‑Square",
+        "bpm": "119.99",
+        "key": "Gm",
+        "ok": false
+      },
+      {
+        "titre": "Miss Lolo",
+        "artiste": "(Côte d’Ivoire)",
+        "bpm": "118.02",
+        "key": "A♭m",
+        "ok": false
+      },
+      {
+        "titre": "Bella",
+        "artiste": "Maître Gims",
+        "bpm": "97.98",
+        "key": "Fm",
+        "ok": false
+      },
+      {
+        "titre": "Sapés comme jamais",
+        "artiste": "Maître Gims",
+        "bpm": "99.96",
+        "key": "Gm",
+        "ok": false
+      },
+      {
+        "titre": "Tetema",
+        "artiste": "Rayvanny ft. Diamond Platnumz",
+        "bpm": "125.99",
+        "key": "A♭m",
+        "ok": false
+      },
+      {
+        "titre": "C’est Dosé",
+        "artiste": "Serge Beynaud",
+        "bpm": "127.99",
+        "key": "G♯m",
+        "ok": false
+      },
+      {
+        "titre": "Apéritif Yamouk",
+        "artiste": "Debordo Leekunfa",
+        "bpm": "129.98",
+        "key": "Am",
+        "ok": false
+      },
+      {
+        "titre": "Hola Señorita",
+        "artiste": "Gims & Maluma",
+        "bpm": "95.99",
+        "key": "F♯m",
+        "ok": false
+      }
+    ]
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Transition",
+    "debut": "20:50",
+    "fin": "21:00",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "Be Ahissia",
+    "formule": "",
+    "taches": "Spectacle",
+    "debut": "21:00",
+    "fin": "22:15",
+    "chansons": []
+  },
+  {
+    "date": "2026-06-26",
+    "scene": "Havre principale",
+    "artiste": "",
+    "formule": "",
+    "taches": "Démontage du kit",
+    "debut": "22:00",
+    "fin": "00:00",
+    "chansons": []
+  }
 ]
