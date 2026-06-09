@@ -1,15 +1,27 @@
 import '../style.css';
 import initialData from './initialData.json';
 
-let schedule = JSON.parse(localStorage.getItem('show-schedule')) || initialData;
+const rawData = JSON.parse(localStorage.getItem('show-schedule')) || initialData;
+let schedule = Array.isArray(rawData) ? rawData : (rawData.schedule || []);
+let docTitle = rawData.title || "Feuille de Route - 26 Juin 2026";
 
-// Standardize data structure if loaded from old format
+// Standardize data structure
 schedule = schedule.map(item => ({
   ...item,
   chansons: Array.isArray(item.chansons) ? item.chansons : []
 }));
 
 const tableBody = document.getElementById('table-body');
+const titleElement = document.querySelector('h1');
+
+if (titleElement) {
+  titleElement.textContent = docTitle;
+  titleElement.contentEditable = true;
+  titleElement.addEventListener('blur', () => {
+    docTitle = titleElement.textContent;
+  });
+}
+
 const addRowBtn = document.getElementById('add-row');
 const saveAllBtn = document.getElementById('save-all');
 const resetBtn = document.getElementById('reset-data');
@@ -167,7 +179,11 @@ if (newDocBtn) {
 
 if (saveJsonBtn) {
   saveJsonBtn.addEventListener('click', () => {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(schedule, null, 2));
+    const dataToSave = {
+      title: docTitle,
+      schedule: schedule
+    };
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dataToSave, null, 2));
     const dlAnchor = document.createElement('a');
     dlAnchor.setAttribute("href", dataStr);
     dlAnchor.setAttribute("download", `show_${new Date().toISOString().split('T')[0]}.json`);
@@ -186,7 +202,14 @@ if (fileInput) {
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
-        schedule = JSON.parse(event.target.result);
+        const loadedData = JSON.parse(event.target.result);
+        if (loadedData.title && loadedData.schedule) {
+          docTitle = loadedData.title;
+          if (titleElement) titleElement.textContent = docTitle;
+          schedule = loadedData.schedule;
+        } else {
+          schedule = loadedData;
+        }
         renderTable();
       } catch (err) { alert("Erreur chargement JSON"); }
     };
@@ -196,7 +219,11 @@ if (fileInput) {
 
 if (saveAllBtn) {
   saveAllBtn.addEventListener('click', () => {
-    localStorage.setItem('show-schedule', JSON.stringify(schedule));
+    const dataToSave = {
+      title: docTitle,
+      schedule: schedule
+    };
+    localStorage.setItem('show-schedule', JSON.stringify(dataToSave));
     alert('Enregistré dans le navigateur !');
   });
 }
@@ -227,7 +254,9 @@ if (exportBtn) {
 if (resetBtn) {
   resetBtn.addEventListener('click', () => {
     if (confirm('Reset aux données initiales ?')) {
-      schedule = JSON.parse(JSON.stringify(initialData));
+      docTitle = initialData.title || "Feuille de Route - 26 Juin 2026";
+      if (titleElement) titleElement.textContent = docTitle;
+      schedule = JSON.parse(JSON.stringify(initialData.schedule || initialData));
       localStorage.removeItem('show-schedule');
       renderTable();
     }

@@ -1,5 +1,7 @@
-[
-  { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Montage kit", "debut": "09:00", "fin": "12:30", "chansons": [] },
+{
+  "title": "Feuille de Route - 26 Juin 2026",
+  "schedule": [
+    { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Montage kit", "debut": "09:00", "fin": "12:30", "chansons": [] },
   { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Repas des techniciens (Installation)", "debut": "12:30", "fin": "13:30", "chansons": [] },
   { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Be Ahissia", "formule": "5 musiciens", "taches": "Test de son", "debut": "13:30", "fin": "14:15", "chansons": [] },
   { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Be Ahissia", "formule": "5 musiciens", "taches": "Préparation de scène", "debut": "14:15", "fin": "15:00", "chansons": [] },
@@ -50,4 +52,5 @@
   { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Transition", "debut": "20:50", "fin": "21:00", "chansons": [] },
   { "date": "2026-06-26", "scene": "Havre principale", "artiste": "Be Ahissia", "formule": "", "taches": "Spectacle", "debut": "21:00", "fin": "22:15", "chansons": [] },
   { "date": "2026-06-26", "scene": "Havre principale", "artiste": "", "formule": "", "taches": "Démontage du kit", "debut": "22:00", "fin": "00:00", "chansons": [] }
-]
+  ]
+}
