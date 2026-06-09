@@ -72,10 +72,12 @@ function renderTable() {
       <td><input type="time" value="${item.fin}" data-index="${index}" data-key="fin"></td>
       <td class="duration-cell" id="duration-${index}">${calculateDuration(item.debut, item.fin)}</td>
       <td class="song-list-cell">
-        <div class="song-list-container">
-          ${(item.chansons || []).map((song, sIndex) => `
-            <div class="song-item">
+        <div class="song-list-container" data-index="${index}">
+          ${(item.chansons || []).sort((a, b) => (a.number || 0) - (b.number || 0)).map((song, sIndex) => `
+            <div class="song-item" draggable="true" data-index="${index}" data-sindex="${sIndex}">
+              <span class="drag-handle">☰</span>
               <input type="checkbox" class="song-ok" ${song.ok ? 'checked' : ''} data-index="${index}" data-sindex="${sIndex}" data-key="ok">
+              <span class="song-number-display">${song.number || ''}</span>
               <input type="text" class="song-title" value="${song.titre}" data-index="${index}" data-sindex="${sIndex}" data-key="titre" placeholder="Titre">
               <input type="text" class="song-info" value="${song.info}" data-index="${index}" data-sindex="${sIndex}" data-key="info" placeholder="Infos">
               <span class="remove-song-btn" data-index="${index}" data-sindex="${sIndex}">&times;</span>
@@ -108,6 +110,93 @@ function updateData(index, key, value, sIndex = null) {
 }
 
 if (tableBody) {
+  let draggedSong = null;
+
+  tableBody.addEventListener('dragstart', (e) => {
+    if (e.target.classList.contains('song-item')) {
+      draggedSong = {
+        itemIndex: parseInt(e.target.dataset.index),
+        songIndex: parseInt(e.target.dataset.sindex)
+      };
+      e.target.classList.add('dragging');
+    }
+  });
+
+  tableBody.addEventListener('dragend', (e) => {
+    if (e.target.classList.contains('song-item')) {
+      e.target.classList.remove('dragging');
+      draggedSong = null;
+    }
+  });
+
+  tableBody.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    const container = e.target.closest('.song-list-container');
+    if (container && draggedSong) {
+      const targetItem = e.target.closest('.song-item');
+      if (targetItem && targetItem.dataset.index == draggedSong.itemIndex) {
+        const targetSIndex = parseInt(targetItem.dataset.sindex);
+        if (targetSIndex !== draggedSong.songIndex) {
+          const songs = schedule[draggedSong.itemIndex].chansons;
+          const [movedSong] = songs.splice(draggedSong.songIndex, 1);
+          songs.splice(targetSIndex, 0, movedSong);
+          
+          songs.forEach((s, i) => s.number = i + 1);
+          
+          draggedSong.songIndex = targetSIndex;
+          renderTable();
+        }
+      }
+    }
+  });
+
+  // Support for touch devices (iOS/Android)
+  let touchStartY = 0;
+  let touchTarget = null;
+
+  tableBody.addEventListener('touchstart', (e) => {
+    const item = e.target.closest('.song-item');
+    if (item && (e.target.classList.contains('drag-handle') || e.target.tagName !== 'INPUT')) {
+      touchTarget = item;
+      touchStartY = e.touches[0].clientY;
+      item.classList.add('dragging');
+      // Prevent scrolling while dragging
+      document.body.style.overflow = 'hidden'; 
+    }
+  }, { passive: false });
+
+  tableBody.addEventListener('touchmove', (e) => {
+    if (!touchTarget) return;
+    e.preventDefault();
+    
+    const touchY = e.touches[0].clientY;
+    const elementAtPoint = document.elementFromPoint(e.touches[0].clientX, touchY);
+    const targetItem = elementAtPoint?.closest('.song-item');
+
+    if (targetItem && targetItem !== touchTarget && targetItem.dataset.index === touchTarget.dataset.index) {
+      const itemIndex = parseInt(touchTarget.dataset.index);
+      const fromIndex = parseInt(touchTarget.dataset.sindex);
+      const toIndex = parseInt(targetItem.dataset.sindex);
+
+      const songs = schedule[itemIndex].chansons;
+      const [movedSong] = songs.splice(fromIndex, 1);
+      songs.splice(toIndex, 0, movedSong);
+      
+      songs.forEach((s, i) => s.number = i + 1);
+      
+      touchTarget.dataset.sindex = toIndex;
+      renderTable();
+    }
+  }, { passive: false });
+
+  tableBody.addEventListener('touchend', () => {
+    if (touchTarget) {
+      touchTarget.classList.remove('dragging');
+      touchTarget = null;
+      document.body.style.overflow = '';
+    }
+  });
+
   tableBody.addEventListener('input', (e) => {
     const { index, key, sindex } = e.target.dataset;
     if (index !== undefined && key !== undefined) {
@@ -117,9 +206,9 @@ if (tableBody) {
   });
 
   tableBody.addEventListener('change', (e) => {
-    if (e.target.type === 'checkbox') {
-      const { index, key, sindex } = e.target.dataset;
-      if (index !== undefined && key !== undefined) {
+    const { index, key, sindex } = e.target.dataset;
+    if (index !== undefined && key !== undefined) {
+      if (e.target.type === 'checkbox') {
         updateData(parseInt(index), key, e.target.checked, sindex !== undefined ? parseInt(sindex) : null);
       }
     }
@@ -132,7 +221,10 @@ if (tableBody) {
       renderTable();
     } else if (e.target.classList.contains('add-song-btn')) {
       if (!schedule[index].chansons) schedule[index].chansons = [];
-      schedule[index].chansons.push({ titre: '', info: '', ok: false });
+      const nextNum = schedule[index].chansons.length > 0 
+        ? Math.max(...schedule[index].chansons.map(s => s.number || 0)) + 1 
+        : 1;
+      schedule[index].chansons.push({ number: nextNum, titre: '', info: '', ok: false });
       renderTable();
     } else if (e.target.classList.contains('remove-song-btn')) {
       const sIndex = parseInt(e.target.dataset.sindex);
@@ -240,7 +332,7 @@ if (exportBtn) {
       item.debut,
       item.fin,
       calculateDuration(item.debut, item.fin),
-      `"${(item.chansons || []).map(s => `${s.ok ? '[OK] ' : ''}${s.titre} (${s.info})`).join(' | ').replace(/"/g, '""')}"`
+      `"${(item.chansons || []).sort((a, b) => (a.number || 0) - (b.number || 0)).map(s => `${s.number || ''}. ${s.ok ? '[OK] ' : ''}${s.titre} (${s.info})`).join(' | ').replace(/"/g, '""')}"`
     ]);
     const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n");
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });

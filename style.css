@@ -19,7 +19,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 #app {
@@ -36,8 +36,8 @@ header {
   border-bottom: 2px solid #333;
   background-color: #193f28;
   padding-bottom: 1rem;
-  width: 100%;
-  /* width: calc(100% = 20px); */
+  /* width: 100%; */
+  width: calc(100% - 48px);
 }
 
 h1 {
@@ -49,6 +49,7 @@ h1 {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  padding: 0 32px 0 0;
 }
 
 button {
@@ -83,14 +84,16 @@ button#save-all {
   overflow-x: auto;
   border: 1px solid #444;
   border-radius: 4px;
+  padding: 20px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   background-color: #1e1e1e;
-  font-size: 1.05rem;
+  font-size: 0.85rem;
   table-layout: fixed;
+  min-width: 1100px;
 }
 
 th,
@@ -111,18 +114,21 @@ th {
 
 th:nth-child(1) {
   width: 120px;
+  /* font-size: 0.65rem; */
 }
 th:nth-child(2) {
-  width: 150px;
+  /* display: flex; */
+  width: 80px;
+  /* flex-wrap: wrap; */
 }
 th:nth-child(3) {
-  width: 180px;
-}
-th:nth-child(4) {
   width: 120px;
 }
+th:nth-child(4) {
+  width: 80px;
+}
 th:nth-child(5) {
-  width: 280px;
+  width: 200px;
 }
 th:nth-child(6) {
   width: 100px;
@@ -132,6 +138,9 @@ th:nth-child(7) {
 }
 th:nth-child(8) {
   width: 80px;
+}
+th:nth-child(9) {
+  width: 500px;
 }
 th:nth-child(10) {
   width: 70px;
@@ -191,18 +200,39 @@ textarea:focus {
   align-items: center;
   border-bottom: 1px solid #444;
   padding-bottom: 8px;
+  cursor: grab;
+}
+
+.song-item.dragging {
+  opacity: 0.5;
+  background-color: #333;
+}
+
+.drag-handle {
+  padding: 0 4px;
+  color: #666;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.song-number-display {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
 }
 
 .song-item input[type="checkbox"] {
   width: 18px !important;
   height: 18px !important;
-  margin: 0 8px;
+  margin: 0 4px;
   cursor: pointer;
   accent-color: #646cff;
 }
 
 .song-item input {
-  font-size: 1.15rem;
+  font-size: 1rem;
   padding: 1px 4px;
 }
 
