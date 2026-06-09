@@ -6,6 +6,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  box-sizing: border-box;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -180,7 +181,7 @@ textarea:focus {
   gap: 4px;
   align-items: center;
   border-bottom: 1px solid #444;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
 }
 
 .song-item input[type="checkbox"] {
@@ -192,7 +193,7 @@ textarea:focus {
 }
 
 .song-item input {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   padding: 1px 4px;
 }
 
@@ -218,15 +219,24 @@ textarea:focus {
 }
 
 .remove-song-btn {
-  color: #ff4d4d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5a5a5;
   cursor: pointer;
-  font-size: 1.75rem;
-  margin: 2px 16px 2px 2px;
-  padding: 0 10px;
-  border: solid #7f1d1d;
+  font-size: 1.5rem;
+  margin: 0 16px 0 0;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #7f1d1d;
   background-color: #242424;
+  line-height: 0;
+  padding-bottom: 4px;
+  box-sizing: border-box;
   &:hover {
     filter: brightness(1.25);
+    color: #ff4d4d;
+    border: 2px solid #d00303;
   }
 }
 
